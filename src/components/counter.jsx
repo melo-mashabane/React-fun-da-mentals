@@ -5,7 +5,9 @@ class Counter
     state = {
         count: 0,
         imageUrl: "https://iwalkpaths.co.uk/wordpress/wp-content/uploads/2019/10/iwalk_logo.jpeg",
-        tags: ["tag1", "tag2", "tag3"]
+        // Swap them around to test.
+        // tags: ["tag1", "tag2", "tag3"]
+        tags: []
     };
 
     render() { 
@@ -14,9 +16,17 @@ class Counter
             <img src={this.state.imageUrl} alt="" />
             <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
             <button className="btn btn-secondary btn-sm">Increment</button>
-            <ul>{this.state.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>
+            <div>
+                {this.state.tags.length === 0 && "Please create new tag!"}
+                {this.renderTags()}
+            </div>
         </React.Fragment>
       );
+    }
+
+    renderTags() {
+        if(this.state.tags.length === 0) return <p>There are no tags!</p>;
+        return <ul>{this.state.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>
     }
 
     getBadgeClasses() {
