@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 
 class Counter
  extends Component {
+
+    constructor() {
+        super();
+        this.handleIncrement = this.handleIncrement.bind(this);
+    }
+
+
     state = {
         count: 0,
         imageUrl: "https://iwalkpaths.co.uk/wordpress/wp-content/uploads/2019/10/iwalk_logo.jpeg",
@@ -15,7 +22,10 @@ class Counter
         <React.Fragment>
             <img src={this.state.imageUrl} alt="" />
             <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
-            <button className="btn btn-secondary btn-sm">Increment</button>
+            <button 
+                onClick={this.handleIncrement}
+                className="btn btn-secondary btn-sm">Increment
+            </button>
             <div>
                 {this.state.tags.length === 0 && "Please create new tag!"}
                 {this.renderTags()}
@@ -23,6 +33,16 @@ class Counter
         </React.Fragment>
       );
     }
+
+    handleIncrement() {
+        console.log("Increment Clicked!");
+    }
+
+    // Experimental: Arrow function inherint the bind word instead of
+    // using constructor and rebind every event handler manually.
+    // handleIncrement = () => {
+    //     console.log("Increment Clicked!");
+    // };
 
     renderTags() {
         if(this.state.tags.length === 0) return <p>There are no tags!</p>;
