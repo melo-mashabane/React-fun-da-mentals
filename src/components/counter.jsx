@@ -17,7 +17,7 @@ class Counter
             <img src={this.state.imageUrl} alt="" />
             <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
             <button 
-                onClick={this.handleIncrement}
+                onClick={ () => this.handleIncrement({id: 1})}
                 className="btn btn-secondary btn-sm">Increment
             </button>
             <div>
@@ -27,9 +27,11 @@ class Counter
         </React.Fragment>
       );
     }
+
     // Experimental: Arrow function inherint the bind word instead of
     // using constructor and rebind every event handler manually.
-    handleIncrement = () => {
+    handleIncrement = product => {
+        console.log(product);
         this.setState({count : this.state.count + 1});
     };
 
