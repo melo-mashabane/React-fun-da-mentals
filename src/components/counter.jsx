@@ -5,7 +5,7 @@ class Counter
 
     state = {
         count: 0,
-        imageUrl: "https://iwalkpaths.co.uk/wordpress/wp-content/uploads/2019/10/iwalk_logo.jpeg",
+        // imageUrl: "https://iwalkpaths.co.uk/wordpress/wp-content/uploads/2019/10/iwalk_logo.jpeg",
         // Swap them around to test.
         // tags: ["tag1", "tag2", "tag3"]
         tags: []
@@ -14,7 +14,7 @@ class Counter
     render() { 
         return (
         <React.Fragment>
-            <img src={this.state.imageUrl} alt="" />
+            {/* <img src={this.state.imageUrl} alt="" /> */}
             <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
             <button 
                 onClick={ () => this.handleIncrement({id: 1})}
