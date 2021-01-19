@@ -7,7 +7,6 @@ class Counter
     render() { 
         return (
         <React.Fragment>
-            {/* <img src={this.state.imageUrl} alt="" /> */}
             <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
             <button 
                 onClick={ () => this.handleIncrement({id: 1})}
