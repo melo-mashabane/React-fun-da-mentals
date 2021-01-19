@@ -1,9 +1,9 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Counter from './components/counter';
+import Counters from './components/counters';
 
 const element = <h1>Helloooooow Moshy</h1>
 console.log(element);
 
-ReactDOM.render(<Counter />, document.getElementById("root")); 
+ReactDOM.render(<Counters />, document.getElementById("root")); 
