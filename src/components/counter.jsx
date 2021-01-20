@@ -6,9 +6,6 @@ class Counter
     state = { count: this.props.value};
     
     render() { 
-
-        console.log('propies', this.props )
-
         return (
         <div>
             <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
@@ -17,7 +14,7 @@ class Counter
                 className="btn btn-secondary btn-sm">Increment
             </button>
             <button 
-                onClick={this.props.onDelete}
+                onClick={() => this.props.onDelete(this.props.id)} 
                 className="btn btn-danger btn-sm m2">Delete</button>
         </div>
       );
@@ -26,7 +23,6 @@ class Counter
     // Experimental: Arrow function inherint the bind word instead of
     // using constructor and rebind every event handler manually.
     handleIncrement = product => {
-        console.log(product);
         this.setState({count : this.state.count + 1});
     };
 
