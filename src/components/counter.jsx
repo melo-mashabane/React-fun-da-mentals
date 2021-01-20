@@ -34,7 +34,7 @@ class Counter
 
     formatCount(){
         const {count} = this.state;
-        return count === 0 ? <h1>Zero</h1>: count;
+        return count === 0 ? <h5>Zero</h5>: count;
     }
 }
  
