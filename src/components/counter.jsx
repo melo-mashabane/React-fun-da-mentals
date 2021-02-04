@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Counter
  extends Component {
   
-    state = { count: this.props.counter.value};
+    state = { value: this.props.counter.value};
     
     render() { 
         return (
@@ -22,19 +22,19 @@ class Counter
 
     // Experimental: Arrow function inherint the bind word instead of
     // using constructor and rebind every event handler manually.
-    handleIncrement = product => {
-        this.setState({count : this.state.count + 1});
+    handleIncrement = () => {
+        this.setState({value : this.state.value + 1});
     };
 
     getBadgeClasses() {
         let classes = "badge m-2 badge-";
-        classes += this.state.count === 0 ? "warning" : "primary";
+        classes += this.state.value === 0 ? "warning" : "primary";
         return classes;
     }
 
     formatCount(){
-        const {count} = this.state;
-        return count === 0 ? <h5>Zero</h5>: count;
+        const {value: count} = this.state;
+        return count === 0 ? "Zero": count;
     }
 }
  
